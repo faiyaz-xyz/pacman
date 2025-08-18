@@ -27,9 +27,10 @@ window.onload = function () {
 
   loadImages();
   loadMap();
-  console.log(walls.size);
-  console.log(foods.size);
-  console.log(ghosts.size);
+  // console.log(walls.size);
+  // console.log(foods.size);
+  // console.log(ghosts.size);
+  update();
 };
 
 // X = wall, O = empty space, P = pac man, " " = food
@@ -123,6 +124,21 @@ function loadMap() {
       }
     }
   }
+}
+
+function update() {
+  draw();
+  setTimeout(update, 50);
+}
+
+function draw() {
+  context.drawImage(
+    pacman.image,
+    pacman.x,
+    pacman.y,
+    pacman.width,
+    pacman.height
+  );
 }
 
 class Block {
